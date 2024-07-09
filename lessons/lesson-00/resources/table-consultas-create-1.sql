@@ -1,4 +1,4 @@
--- Criação da tabela
+-- Criação da tabela - Exemplo
 CREATE TABLE consultas (
     nome_paciente VARCHAR(100),
     data_nasc_paciente DATE,

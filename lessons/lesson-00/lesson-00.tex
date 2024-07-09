@@ -103,7 +103,6 @@
 		\frametitle{Registro de dados}
 		\vspace{3mm}
 		Imagine um formulário para fazer o agendamento de uma consulta médica...
-		
 		\begin{columns}[t]
 			\begin{column}{0.50\textwidth}
 				\vspace{0.3cm}
@@ -111,7 +110,6 @@
 					\includegraphics[width=63mm, right]{sample-form.png}
 				\end{figure}
 			\end{column}
-			
 			\begin{column}{0.53\textwidth}
 				\begin{itemize}					
 					\item O formulário possui diversos \textit{\textbf{campos}} que devem ser preenchidos
@@ -133,22 +131,20 @@
 		\end{columns}
 	\end{frame}
 	
+	%Frame: rows and columns
 	\begin{frame}
 		\frametitle{Registro de dados}
 		\vspace{3mm}
 		As fichas do formulário podem ser armazenadas em uma tabela 
-		
 		\begin{itemize}
-			\item Cada ficha preenchida torna-se uma \textit{linha} ou \textit{registro} na tabela
-			
-			\item Os campos do formulário tornam-se colunas na tabela
+			\item Cada ficha preenchida torna-se uma \textbf\textit{linha} ou \textbf{\textit{registro}} na tabela
+			\item Os campos do formulário tornam-se \textbf{\textit{colunas}} na tabela
 		\end{itemize}		
 	\end{frame}
 	
 	\begin{frame}
 		\frametitle{Registro de dados}
 		Alguns dados fictícios (gerados pelo ChatGPT)
-		
 		\begin{table}[ht]
 			\centering
 			\footnotesize
@@ -189,49 +185,46 @@
 		\end{table}
 	\end{frame}
 	
+	%Frame: create table
 	\begin{frame}
 		\frametitle{Criação da tabela no SQL}
-		Para criar uma tabela como essa, utilizamos o seguinte código SQL:
-		\vspace{7mm}
-		\lstinputlisting[language=Sql]{table-consultas-delete-1.sql}
-
-	\end{frame}
+		Para criar uma tabela como essa, utilizamos o comando \redhighlight{CREATE TABLE}:
+		\lstinputlisting[language=Sql]{table-consultas-create-1.sql}
+		Vamos analisar a estrutura desse comando:
+		\lstinputlisting[language=Sql]{table-consultas-create-2.sql}
+	\end{frame}	
 	
-	
+	%Frame: insert records
 	\begin{frame}
 		\frametitle{Inserir registros na tabela}
-		Para criar uma tabela, utilizamos o comando \textbf{\texttt{CREATE TABLE}}:
-		\vspace{3mm}
-		\lstinputlisting[language=Sql]{table-consultas-ingest-1.sql}
+		Para inserir registros, utilizamos o comando \redhighlight{INSERT INTO ... VALUES}:
+		\lstinputlisting[language=Sql, xleftmargin=0mm, xrightmargin=0mm]{table-consultas-ingest-1.sql}
 	\end{frame}
-	
+
+	%Frame: select
 	\begin{frame}
 		\frametitle{Consultar registros}
-		Para consultar os registros de uma tabela, usamos o comando \textbf{\texttt{SELECT}}.
+		Para consultar os registros de uma tabela, usamos o comando \redhighlight{SELECT}.
 		\lstinputlisting[language=Sql]{table-consultas-select-1.sql}
-		
-		\vspace{2mm}
 		Resposta do servidor:
-		
 		\lstinputlisting[language=Sql]{table-consultas-select-1-result.sql}
 	\end{frame}
 	
+	%Frame: update
 	\begin{frame}
 		\frametitle{Atualizar registros}
-		Para atualizar os registros de uma tabela, usamos o comando \textbf{\texttt{UPDATE...SET}} 
-		
+		Para atualizar os registros de uma tabela, usamos o comando \redhighlight{UPDATE...SET} 
 		\lstinputlisting[language=Sql]{table-consultas-update-1.sql}
-		
 		Se fizermos a consulta novamente
 		\lstinputlisting[language=Sql]{table-consultas-select-1.sql}
 		\lstinputlisting[language=Sql]{table-consultas-select-1-result-2.sql}
-		
 	\end{frame}
 	
+	%Frame: delete
 	\begin{frame}
 		\frametitle{Deletar registros}
-		\vspace{0.5cm}
-
+		Para apagar um registro utilizamos o comando \redhighlight{DELETE}
+		\lstinputlisting[language=Sql]{table-consultas-delete-1.sql}
 	\end{frame}
 	
 \end{document}

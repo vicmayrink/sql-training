@@ -1,6 +1,4 @@
 define compile_pdf
-	rm -rf ./lessons/$1/texfiles/
-	mkdir -p ./lessons/$1/texfiles/
 	docker run --rm --entrypoint sh -v "./common/:/common" -v "./lessons/$1/:/data" vicmayrink/latex /common/compile.sh $1
 	mv ./lessons/$1/texfiles/$1.pdf ./$1.pdf
 endef
@@ -15,6 +13,9 @@ docker-image:
 all:
 	@$(call compile_pdf,"lesson-00")
 	@$(call compile_pdf,"lesson-01")
+
+clear:
+	rm *.pdf
 
 lesson-00:
 	@$(call compile_pdf,"lesson-00")
