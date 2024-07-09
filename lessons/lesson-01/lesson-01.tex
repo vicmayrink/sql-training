@@ -1,0 +1,215 @@
+\documentclass[t, 10pt, aspectratio=169, table, x11names]{beamer}
+\usetheme{metropolis}
+
+\input{/common/template}
+
+\begin{document}
+
+	\author{Victor Mayrink}
+	\title{Curso de SQL}
+	\subtitle{Aula 1: Instalação das ferramentas e configuração do ambiente}
+
+	\begin{frame}[plain]
+		\maketitle
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Resumo da aula}
+		\vspace{0.5cm}
+		\begin{figure}[h]
+			\includegraphics[width=0.70\textwidth]{docker-window.png}
+		\end{figure}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Requisitos}
+		Para fazer atividades do curso, vamos precisar instalar algumas ferramentas
+		\begin{columns}[t]
+			\begin{column}{0.20\textwidth}
+				\vspace{0.3cm}
+				\begin{figure}[h]
+					\includegraphics[width=1.5cm, right]{docker.png}
+				\end{figure}
+				\vspace{1.1cm}
+				\begin{figure}[h]
+					\includegraphics[width=1.5cm, right]{dbeaver.png}
+				\end{figure}
+			\end{column}
+
+			\begin{column}{0.70\textwidth}
+				\begin{itemize}
+					\item \textbf{Docker}: \href{https://www.docker.com/products/docker-desktop/}{\appallingunderline{https://www.docker.com/products/docker-desktop/}}
+					
+					\begin{itemize}
+						\item Utilizaremos o Docker para simular um \textit{servidor} de banco de dados no nosso próprio computador
+						\item Além do Docker, vamos precisar da \textit{imagem} do banco de dados que iremos executar
+					\end{itemize}
+					\vspace{0.4cm}
+					\item \textbf{Dbeaver}: \href{https://dbeaver.io/download}{ \appallingunderline{https://dbeaver.io/download}}
+					\begin{itemize}
+						\item Interface amigável para executar comandos no banco de dados
+						\item Suporta diferentes tipos de bancos de dados
+					\end{itemize}
+				\end{itemize}
+			\end{column}
+			\begin{column}{0.05\textwidth}
+			\end{column}
+		\end{columns}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Instalação do Docker}
+		\begin{enumerate}
+			\item Vá até \href{https://www.docker.com/products/docker-desktop/}{\appallingunderline{https://www.docker.com/products/docker-desktop/}}
+			\item Baixe o instalador do \textit{Docker Desktop} compatível com seu sistema
+			\item Siga os passos de instalação
+		\end{enumerate}
+		\begin{figure}[h]
+			\fbox{\includegraphics[width=0.40\textwidth]{docker-webpage.png}}
+			\hspace{0.5cm}
+			\fbox{\includegraphics[width=0.355\textwidth]{docker-installation.png}}
+		\end{figure}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Docker}
+		\vspace{0.5cm}
+		\begin{figure}[h]
+			\includegraphics[width=0.70\textwidth]{docker-window.png}
+		\end{figure}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Instalação Dbeaver}
+		\vspace{0.5cm}
+		\begin{figure}[h]
+			\includegraphics[width=0.45\textwidth]{dbeaver-install-start.png}
+			\hspace{0.5cm}
+			\includegraphics[width=0.45\textwidth]{dbeaver-install-finish.png}
+		\end{figure}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Instalação Dbeaver}
+		\vspace{0.5cm}
+		\begin{figure}[h]
+			\includegraphics[width=0.70\textwidth]{dbeaver-window.png}
+		\end{figure}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Microsoft PowerShell}
+		Usuários do Windows também devem instalar o \textbf{Microsoft PowerShell}
+		\vspace{0.6cm}
+		\begin{columns}
+			\column{0.07\textwidth}
+			\column{0.15\textwidth}
+			\begin{figure}[h]
+				\includegraphics[width=1.5cm]{powershell-icon.png}
+			\end{figure}
+			\column{0.80\textwidth}
+			\begin{enumerate}
+				\item Abra o prompt de comando e execute o winget para instalar o Microsoft PowerShell
+				\lstinputlisting[style=winprompt]{winget-powershell.cmd}
+				\vspace{0.4cm}
+				\item Utilize a barra de pesquisas e procure pelo PowerShell. Verifique se o programa foi instalado corretamente.
+			\end{enumerate}
+			\column{0.60\textwidth}
+		\end{columns}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Microsoft PowerShell}
+		\vspace{0.5cm}
+		\begin{figure}[h]
+			\includegraphics[width=0.70\textwidth]{powershell-window.png}
+		\end{figure}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Instalação das ferramentas}
+		\vspace{0.5cm}
+		\begin{center}
+			\LARGE
+			Muito bem, finalizamos a instalação das ferramentas! :D
+		\end{center}
+		\vspace{1cm}
+		\begin{center}
+			\LARGE
+			Agora vamos iniciar a configuração! :(
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}[t]
+		\frametitle{Executando o MySQL com o database SakilaDB}
+		Vamos utilizar o Docker para emular um banco de dados na nossa própria máquina.
+		
+		Clique na barra de pesquisa do Docker Desktop e procure pela imagem \textbf{\texttt{sakiladb/mysql}}
+		\vspace{0.3cm}
+		\begin{figure}[h]
+			\includegraphics[width=0.45\textwidth]{docker-sakila-search-1.png}
+			\hspace{0.5cm}
+			\includegraphics[width=0.45\textwidth]{docker-sakila-search-2.png}
+		\end{figure}
+	\end{frame}
+	
+	\begin{frame}[t]
+		\frametitle{Executando o MySQL com o database SakilaDB}
+		Ao executar o container do banco \textbf{\texttt{sakiladb}}, os logs são exibidos na tela.
+		
+		Os logs devem indicar quando o servidor \texttt{\textbf{MySQL}} estiver pronto para receber novas conexões.
+		\vspace{0.1cm}
+		\begin{figure}[h]
+			\includegraphics[width=0.55\textwidth]{docker-sakiladb-ready.png}
+		\end{figure}
+	\end{frame}
+
+	\begin{frame}[t]
+		\frametitle{Conectando-se ao banco através do DBeaver}
+		Agora vamos nos conectar ao banco de dados através do Dbeaver.
+		
+		\begin{enumerate}
+			\small
+			\item Abra o Dbeaver e clique em \texttt{Arquivo > Novo}
+			\item Em seguida, selecione \texttt{Conexão com banco de dados}, dento do diretório Dbeaver
+			\item Escolha o banco \texttt{\textbf{MySQL}} e clique em avançar
+		\end{enumerate}
+		
+		\vspace{0.1cm}
+		\begin{figure}[h]
+			\includegraphics[width=0.32\textwidth]{dbeaver-new.png}
+			\hspace{0.5cm}
+			\includegraphics[width=0.32\textwidth]{dbeaver-db-select.png}
+		\end{figure}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Conectando-se ao banco através do DBeaver}
+		\vspace{0.05cm}
+		\begin{columns}[t]
+			\begin{column}{0.50\linewidth}
+				\centering
+				\begin{enumerate}
+					\small
+					\setcounter{enumi}{3}
+					\item Preencha as credenciais de conexão, conforme a documentação da imagem do \textbf{\texttt{sakiladb}} que está em execução.
+					\begin{itemize}
+						\item \textbf{host:} localhost
+						\item \textbf{port:} 3306
+						\item \textbf{database:} sakila
+						\item \textbf{user:} sakila
+						\item \textbf{password:} p\_ssw0rd
+					\end{itemize}
+					\vspace{0.15cm}
+					\item Finalmente clique em \texttt{Testar Conexão}
+				\end{enumerate}
+			\end{column}
+			\begin{column}{0.45\linewidth}
+				\begin{figure}[h]
+					\includegraphics[width=0.85\textwidth, left]{dbeaver-edit-connection.png}
+				\end{figure}
+			\end{column}
+		\end{columns}
+	\end{frame}
+	
+\end{document}
