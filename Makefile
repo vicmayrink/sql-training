@@ -22,3 +22,6 @@ lesson-00:
 
 lesson-01:
 	@$(call compile_pdf,"lesson-01")
+
+lesson-02:
+	@$(call compile_pdf,"lesson-02")

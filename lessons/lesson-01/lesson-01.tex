@@ -9,10 +9,12 @@
 	\title{Curso de SQL}
 	\subtitle{Aula 1: Instalação das ferramentas e configuração do ambiente}
 
+	%Frame: title
 	\begin{frame}[plain]
 		\maketitle
 	\end{frame}
 	
+	%Frame: agenda
 	\begin{frame}
 		\frametitle{Resumo da aula}
 		\vspace{0.5cm}
@@ -20,7 +22,88 @@
 			\includegraphics[width=0.70\textwidth]{docker-window.png}
 		\end{figure}
 	\end{frame}
+
+	%Frame: client-server
+	\begin{frame}
+		\frametitle{Arquitetura cliente-servidor}
+		A comunicação com o banco de dados, ocorre em um esquema \textbf{cliente-servidor}
+		\vspace{3mm}
+		\begin{figure}[h]
+			\includegraphics[width=0.60\textwidth]{client-server-diagram.png}
+		\end{figure}
+		\begin{itemize}
+			\item O cliente envia uma \textbf{requisição} (ou comando)
+			\item O servidor executa o comando e retorna uma \textbf{resposta}
+		\end{itemize}
+	\end{frame}
 	
+	%Frame: database clients
+	\begin{frame}
+		\frametitle{Clientes de bancos de dados}
+		Existem diferentes \textit{softwares} que funcionam como clientes de bancos de dados
+		\begin{figure}
+			\vspace{2mm}
+			\centering
+			\includegraphics[height=15mm]{dbeaver.png}
+			\hspace{5mm}
+			\includegraphics[height=15mm]{logo-mysql-workbench}
+			\hspace{5mm}
+			\includegraphics[height=15mm]{logo-datagrip.png}
+			\hspace{5mm}
+			\includegraphics[height=15mm]{logo-dbvis.png}
+		\end{figure}
+	\end{frame}
+
+	%Frame: database servers
+	\begin{frame}
+		\frametitle{Servidores de bancos de dados}
+		\begin{itemize}
+			\item[] Da mesma forma, também existem \textit{softwares} que são servidores de banco de dados
+			\begin{figure}
+				\vspace{6mm}
+				\centering
+				\includegraphics[height=13mm]{logo-postgres}
+				\hspace{5mm}
+				\includegraphics[height=13mm]{logo-mysql}
+				\hspace{5mm}
+				\includegraphics[height=13mm]{logo-mariadb}
+				\hspace{5mm}
+				\includegraphics[height=13mm]{logo-redshift}
+			\end{figure}
+			\begin{figure}
+				\vspace{6mm}
+				\centering
+				\includegraphics[height=13mm]{logo-snowflake}
+				\hspace{5mm}
+				\includegraphics[height=13mm]{logo-sql-server}
+				\hspace{5mm}
+				\includegraphics[height=13mm]{logo-sqllite}
+				\hspace{5mm}
+				\includegraphics[height=13mm]{logo-hive}
+			\end{figure}
+		\end{itemize}
+	\end{frame}
+
+	%Frame: client-server
+	\begin{frame}
+		\frametitle{Arquitetura cliente-servidor}
+		Normalmente, o servidor e o cliente rodam em máquinas diferentes e se comunicam via internet. 
+		\begin{figure}[h]
+			\includegraphics[width=0.50\textwidth]{client-server-diagram.png}
+		\end{figure}
+		\begin{itemize}
+			\item[] Caso geral:
+			\begin{itemize}
+				\item O cliente é o nosso computador trabalho
+				\item O servidor é um banco de dados rodando na nuvem (AWS, GCP, Azure, UolHost, etc...)
+			\end{itemize}
+			\vspace{2mm}
+			\item[] No nosso caso vamos simular um servidor na nossa própria máquina de trabalho. 
+		\end{itemize}
+	\end{frame}
+
+	\section{Bora começar!?}
+
 	\begin{frame}
 		\frametitle{Requisitos}
 		Para fazer atividades do curso, vamos precisar instalar algumas ferramentas
@@ -28,33 +111,100 @@
 			\begin{column}{0.20\textwidth}
 				\vspace{0.3cm}
 				\begin{figure}[h]
-					\includegraphics[width=1.5cm, right]{docker.png}
+					\includegraphics[width=1.5cm, right]{dbeaver.png}
 				\end{figure}
 				\vspace{1.1cm}
 				\begin{figure}[h]
-					\includegraphics[width=1.5cm, right]{dbeaver.png}
+					\includegraphics[width=1.5cm, right]{docker.png}
 				\end{figure}
 			\end{column}
 
 			\begin{column}{0.70\textwidth}
 				\begin{itemize}
+					\item \textbf{Dbeaver}: \href{https://dbeaver.io/download}{ \appallingunderline{https://dbeaver.io/download}}
+					\begin{itemize}
+						\item Interface amigável para executar comandos no banco de dados
+						\item Suporta diferentes tipos de bancos de dados
+					\end{itemize}
+
+					\vspace{0.4cm}
 					\item \textbf{Docker}: \href{https://www.docker.com/products/docker-desktop/}{\appallingunderline{https://www.docker.com/products/docker-desktop/}}
 					
 					\begin{itemize}
 						\item Utilizaremos o Docker para simular um \textit{servidor} de banco de dados no nosso próprio computador
 						\item Além do Docker, vamos precisar da \textit{imagem} do banco de dados que iremos executar
 					\end{itemize}
-					\vspace{0.4cm}
-					\item \textbf{Dbeaver}: \href{https://dbeaver.io/download}{ \appallingunderline{https://dbeaver.io/download}}
-					\begin{itemize}
-						\item Interface amigável para executar comandos no banco de dados
-						\item Suporta diferentes tipos de bancos de dados
-					\end{itemize}
 				\end{itemize}
 			\end{column}
 			\begin{column}{0.05\textwidth}
 			\end{column}
 		\end{columns}
+	\end{frame}
+
+	\section{Instalação do Dbeaver}
+
+	%Frame: dbeaver installation #1
+	\begin{frame}
+		\frametitle{Instalação Dbeaver}
+		A instalação do Dbeaver é relativamente simples. Baixe o instalador e siga o fluxo de instalação normalmente utilizando as configurações recomendadas e pré-definidas.
+		\begin{figure}[h]
+			\centering\vspace{2mm}
+			\includegraphics[width=0.45\textwidth]{dbeaver-install-start.png}
+			\hspace{0.5cm}
+			\includegraphics[width=0.45\textwidth]{dbeaver-install-finish.png}
+		\end{figure}
+	\end{frame}
+	
+	%Frame: dbeaver installation #2
+	\begin{frame}
+		\frametitle{Instalação Dbeaver}
+		Depois de instalado. Esta é a aparência do Dbeaver:
+		\begin{figure}[h]
+			\centering\vspace{2mm}
+			\includegraphics[width=0.70\textwidth]{dbeaver-window.png}
+		\end{figure}
+	\end{frame}
+
+	\section{Instalação do Docker}
+
+	%Frame: Powershell installation
+	\begin{frame}
+		\frametitle{Microsoft PowerShell}
+		Usuários do Windows também devem instalar o \textbf{Microsoft PowerShell}
+		\vspace{0.6cm}
+		\begin{columns}
+			\column{0.07\textwidth}
+			\column{0.15\textwidth}
+			\begin{figure}[h]
+				\includegraphics[width=1.5cm]{powershell-icon.png}
+			\end{figure}
+			\column{0.80\textwidth}
+			\begin{enumerate}
+				\item Abra o prompt de comando e execute o winget para instalar o Microsoft PowerShell
+				\lstinputlisting[style=winprompt]{winget-powershell.cmd}
+				\vspace{0.4cm}
+				\item Utilize a barra de pesquisas e procure pelo PowerShell. Verifique se o programa foi instalado corretamente.
+			\end{enumerate}
+			\column{0.60\textwidth}
+		\end{columns}
+	\end{frame}
+	
+	%Frame: Powershell screenshot
+	\begin{frame}
+		\frametitle{Microsoft PowerShell}
+		\vspace{0.5cm}
+		\begin{figure}[h]
+			\includegraphics[width=0.70\textwidth]{powershell-window.png}
+		\end{figure}
+	\end{frame}
+
+	%Frame: WSL2
+	\begin{frame}
+		\frametitle{WSL 2}
+		\vspace{0.5cm}
+		\begin{figure}[h]
+			\includegraphics[width=0.70\textwidth]{powershell-window.png}
+		\end{figure}
 	\end{frame}
 	
 	\begin{frame}
@@ -79,53 +229,8 @@
 		\end{figure}
 	\end{frame}
 	
-	\begin{frame}
-		\frametitle{Instalação Dbeaver}
-		\vspace{0.5cm}
-		\begin{figure}[h]
-			\includegraphics[width=0.45\textwidth]{dbeaver-install-start.png}
-			\hspace{0.5cm}
-			\includegraphics[width=0.45\textwidth]{dbeaver-install-finish.png}
-		\end{figure}
-	\end{frame}
-	
-	\begin{frame}
-		\frametitle{Instalação Dbeaver}
-		\vspace{0.5cm}
-		\begin{figure}[h]
-			\includegraphics[width=0.70\textwidth]{dbeaver-window.png}
-		\end{figure}
-	\end{frame}
-	
-	\begin{frame}
-		\frametitle{Microsoft PowerShell}
-		Usuários do Windows também devem instalar o \textbf{Microsoft PowerShell}
-		\vspace{0.6cm}
-		\begin{columns}
-			\column{0.07\textwidth}
-			\column{0.15\textwidth}
-			\begin{figure}[h]
-				\includegraphics[width=1.5cm]{powershell-icon.png}
-			\end{figure}
-			\column{0.80\textwidth}
-			\begin{enumerate}
-				\item Abra o prompt de comando e execute o winget para instalar o Microsoft PowerShell
-				\lstinputlisting[style=winprompt]{winget-powershell.cmd}
-				\vspace{0.4cm}
-				\item Utilize a barra de pesquisas e procure pelo PowerShell. Verifique se o programa foi instalado corretamente.
-			\end{enumerate}
-			\column{0.60\textwidth}
-		\end{columns}
-	\end{frame}
-	
-	\begin{frame}
-		\frametitle{Microsoft PowerShell}
-		\vspace{0.5cm}
-		\begin{figure}[h]
-			\includegraphics[width=0.70\textwidth]{powershell-window.png}
-		\end{figure}
-	\end{frame}
-	
+	\section{Simulação do servidor MySQL}
+
 	\begin{frame}
 		\frametitle{Instalação das ferramentas}
 		\vspace{0.5cm}
@@ -163,6 +268,8 @@
 			\includegraphics[width=0.55\textwidth]{docker-sakiladb-ready.png}
 		\end{figure}
 	\end{frame}
+
+	\section{Conectando-se ao servidor MySQL}
 
 	\begin{frame}[t]
 		\frametitle{Conectando-se ao banco através do DBeaver}

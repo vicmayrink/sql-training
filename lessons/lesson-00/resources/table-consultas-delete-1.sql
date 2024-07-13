@@ -1,4 +1,4 @@
--- Deletar um registro qualquer (por exemplo, a consulta do João com a Dra. Lima)
+-- Deletar um registro qualquer (ex: a consulta do João com a Dra. Lima)
 DELETE FROM consultas
 WHERE nome_paciente = 'João Santos'
 AND nome_medico = 'Dra. Lima'

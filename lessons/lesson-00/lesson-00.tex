@@ -8,7 +8,7 @@
 	%Author, Title and subtitle
 	\author{Victor Mayrink}
 	\title{Curso de SQL}
-	\subtitle{Aula 0: Instalação e configuração das ferramentas}
+	\subtitle{Aula 0: Introdução e motivação}
 
 	%Fame: title
 	\begin{frame}[plain]
@@ -99,6 +99,7 @@
 	
 	\section{Vamos começar}
 	
+	%Frame: doctor scheduling example
 	\begin{frame}
 		\frametitle{Registro de dados}
 		\vspace{3mm}
@@ -142,6 +143,7 @@
 		\end{itemize}		
 	\end{frame}
 	
+	%Frame: insert
 	\begin{frame}
 		\frametitle{Registro de dados}
 		Alguns dados fictícios (gerados pelo ChatGPT)
@@ -188,7 +190,7 @@
 	%Frame: create table
 	\begin{frame}
 		\frametitle{Criação da tabela no SQL}
-		Para criar uma tabela como essa, utilizamos o comando \redhighlight{CREATE TABLE}:
+		Para criar uma tabela como essa, utilizamos o comando \bluehighlight{CREATE TABLE}:
 		\lstinputlisting[language=Sql]{table-consultas-create-1.sql}
 		Vamos analisar a estrutura desse comando:
 		\lstinputlisting[language=Sql]{table-consultas-create-2.sql}
@@ -197,14 +199,23 @@
 	%Frame: insert records
 	\begin{frame}
 		\frametitle{Inserir registros na tabela}
-		Para inserir registros, utilizamos o comando \redhighlight{INSERT INTO ... VALUES}:
+		Para inserir registros, utilizamos o comando \bluehighlight{INSERT INTO ... VALUES}:
 		\lstinputlisting[language=Sql, xleftmargin=0mm, xrightmargin=0mm]{table-consultas-ingest-1.sql}
 	\end{frame}
 
 	%Frame: select
 	\begin{frame}
 		\frametitle{Consultar registros}
-		Para consultar os registros de uma tabela, usamos o comando \redhighlight{SELECT}.
+		Para consultar os registros de uma tabela, usamos o comando \bluehighlight{SELECT}.
+		\lstinputlisting[language=Sql]{table-consultas-select-1.sql}
+		Resposta do servidor:
+		\lstinputlisting[language=Sql]{table-consultas-select-1-result.sql}
+	\end{frame}
+
+	%Frame: practical case
+	\begin{frame}
+		\frametitle{Exemplo prático com o Dbeaver}
+		Para consultar os registros de uma tabela, usamos o comando \bluehighlight{SELECT}.
 		\lstinputlisting[language=Sql]{table-consultas-select-1.sql}
 		Resposta do servidor:
 		\lstinputlisting[language=Sql]{table-consultas-select-1-result.sql}
@@ -213,7 +224,7 @@
 	%Frame: update
 	\begin{frame}
 		\frametitle{Atualizar registros}
-		Para atualizar os registros de uma tabela, usamos o comando \redhighlight{UPDATE...SET} 
+		Para atualizar os registros de uma tabela, usamos o comando \bluehighlight{UPDATE...SET} 
 		\lstinputlisting[language=Sql]{table-consultas-update-1.sql}
 		Se fizermos a consulta novamente
 		\lstinputlisting[language=Sql]{table-consultas-select-1.sql}
@@ -223,7 +234,7 @@
 	%Frame: delete
 	\begin{frame}
 		\frametitle{Deletar registros}
-		Para apagar um registro utilizamos o comando \redhighlight{DELETE}
+		Para apagar um registro utilizamos o comando \bluehighlight{DELETE}
 		\lstinputlisting[language=Sql]{table-consultas-delete-1.sql}
 	\end{frame}
 	
