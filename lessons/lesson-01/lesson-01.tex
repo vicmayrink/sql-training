@@ -58,7 +58,7 @@
 	\begin{frame}
 		\frametitle{Servidores de bancos de dados}
 		\begin{itemize}
-			\item[] Da mesma forma, também existem \textit{softwares} que são servidores de banco de dados
+			\item[] Da mesma forma, também existem diferentes \textit{softwares} que funcionam como servidores de banco de dados
 			\begin{figure}
 				\vspace{6mm}
 				\centering
@@ -106,7 +106,7 @@
 
 	\begin{frame}
 		\frametitle{Requisitos}
-		Para fazer atividades do curso, vamos precisar instalar algumas ferramentas
+		Para fazer atividades do curso, precisamos instalar o cliente e servidor no nosso computador de trabalho.
 		\begin{columns}[t]
 			\begin{column}{0.20\textwidth}
 				\vspace{0.3cm}
@@ -123,7 +123,8 @@
 				\begin{itemize}
 					\item \textbf{Dbeaver}: \href{https://dbeaver.io/download}{ \appallingunderline{https://dbeaver.io/download}}
 					\begin{itemize}
-						\item Interface amigável para executar comandos no banco de dados
+						\item Interface amigável
+						\item Múltiplas funcionalidades
 						\item Suporta diferentes tipos de bancos de dados
 					\end{itemize}
 
@@ -167,10 +168,57 @@
 
 	\section{Instalação do Docker}
 
-	%Frame: Powershell installation
 	\begin{frame}
+		\frametitle{O que é Docker?}
+		Que 
+		\begin{itemize}
+			\item[] O Docker é uma ferramente de virtualizão em que o kernel da máquina hospedeira é compartilhado com a máquina virtualizada;
+			\item[] É uma ferramenta muito popular entre os desenvolvedores, pois facilita e organiza o deploy de aplicações;
+			\item[] Não entendeu? 
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{O que é Docker?}
+		\begin{columns}[t]
+			\begin{column}{0.50\textwidth}
+				\vspace{3mm}
+				\begin{figure}[h]
+					\includegraphics[width=50mm, right]{suba-jovem}
+				\end{figure}
+			\end{column}
+			\begin{column}{0.55\textwidth}
+				\vspace{7mm}
+				\begin{itemize}
+					\large
+					\item[] Não entendeu o que é o Docker?
+					\vspace{3mm}
+					\item[] Tudo bem! Ficará mais claro quando a gente começar a usá-lo.
+					\vspace{3mm}
+					\item[] Por ora, venham comigo!
+				\end{itemize}
+			\end{column}
+			\begin{column}{0.05\textwidth}
+			\end{column}
+		\end{columns}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Instalação do Docker}
+		Vamos resumir o passo a passo para a instalação do Docker:
+		\begin{enumerate}
+			\item Instalar o WSL (usuários Windows)
+			\item Criar uma conta no \textit\textbf{DockerHub}
+			\item Instalar o Docker Desktop
+			\item Fazer o logon no app do Docker
+			\item Baixar e executar uma imagem Docker 
+		\end{enumerate}
+	\end{frame}
+
+	%Frame: Powershell installation [skipped]
+	\begin{frame}<presentation:0>[noframenumbering]
 		\frametitle{Microsoft PowerShell}
-		Usuários do Windows também devem instalar o \textbf{Microsoft PowerShell}
+		\textbf{Passo 1:} Usuários do Windows também devem instalar o \textbf{Microsoft PowerShell}
 		\vspace{0.6cm}
 		\begin{columns}
 			\column{0.07\textwidth}
@@ -189,8 +237,8 @@
 		\end{columns}
 	\end{frame}
 	
-	%Frame: Powershell screenshot
-	\begin{frame}
+	%Frame: Powershell screenshot [skipped]
+	\begin{frame}<presentation:0>[noframenumbering]
 		\frametitle{Microsoft PowerShell}
 		\vspace{0.5cm}
 		\begin{figure}[h]
@@ -201,14 +249,20 @@
 	%Frame: WSL2
 	\begin{frame}
 		\frametitle{WSL 2}
-		\vspace{0.5cm}
-		\begin{figure}[h]
-			\includegraphics[width=0.70\textwidth]{powershell-window.png}
-		\end{figure}
+		\textbf{Pré-requisito:} antes de instalar o \textit{docker-desktop}, é necessário instalar o WSL (\textit{Windows Subsystem for Linux})
+		\begin{enumerate}
+			\item Abra o prompt de comando como administrador e execute o comando abaixo para instalar o wsl
+			\lstinputlisting[style=winprompt]{wsl-install.cmd}
+			\vspace{0.4cm}
+			\item Depois terminar a execução do comando, você pode confirmar se a instalação foi bem sucedida, executando o comando wsl:
+			\lstinputlisting[style=winprompt]{wsl-command.cmd}
+		\end{enumerate}
 	\end{frame}
 	
+	%Frame: Docker Installation #1
 	\begin{frame}
 		\frametitle{Instalação do Docker}
+		Uma vez instalado o WSL, podemos prosseguir para a instalação do Docker:
 		\begin{enumerate}
 			\item Vá até \href{https://www.docker.com/products/docker-desktop/}{\appallingunderline{https://www.docker.com/products/docker-desktop/}}
 			\item Baixe o instalador do \textit{Docker Desktop} compatível com seu sistema
@@ -221,9 +275,10 @@
 		\end{figure}
 	\end{frame}
 	
+	%Frame: Docker Installation #2
 	\begin{frame}
-		\frametitle{Docker}
-		\vspace{0.5cm}
+		\frametitle{Instalação do Docker}
+		Depois de instalado, essa será a aparência do Docker:
 		\begin{figure}[h]
 			\includegraphics[width=0.70\textwidth]{docker-window.png}
 		\end{figure}
@@ -231,11 +286,12 @@
 	
 	\section{Simulação do servidor MySQL}
 
+	%Frame: emulating MySQL
 	\begin{frame}
 		\frametitle{Instalação das ferramentas}
 		\vspace{0.5cm}
 		\begin{center}
-			\LARGE
+			\Large
 			Muito bem, finalizamos a instalação das ferramentas! :D
 		\end{center}
 		\vspace{1cm}
