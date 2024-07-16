@@ -170,11 +170,16 @@
 
 	\begin{frame}
 		\frametitle{O que é Docker?}
-		Que 
+		O que é \textit{esse tal} de Docker?
+		\vspace{3mm} 
 		\begin{itemize}
-			\item[] O Docker é uma ferramente de virtualizão em que o kernel da máquina hospedeira é compartilhado com a máquina virtualizada;
-			\item[] É uma ferramenta muito popular entre os desenvolvedores, pois facilita e organiza o deploy de aplicações;
-			\item[] Não entendeu? 
+			\item O Docker é um software de código aberto usado para exectutar aplicações dentro de \textbf{containers} virtuais.
+			\vspace{2mm}
+			\item A maior parte das aplicações são projetadas e otimizadas para rodar em um SO específico e possuem dependências de bibliotecas de sistema.
+			\vspace{2mm}
+			\item Com o Docker, é possível emular uma aplicações projetada para rodar em outro SO e sem se preocupar com a instalação e configuração das dependências.
+			\vspace{2mm}
+			\item O propósito final é semelhante ao de uma máquina virtual, embora tecnicamente não seja exatamente a mesma coisa.
 		\end{itemize}
 	\end{frame}
 
@@ -205,7 +210,7 @@
 
 	\begin{frame}
 		\frametitle{Instalação do Docker}
-		Vamos resumir o passo a passo para a instalação do Docker:
+		Para matar a ansiedade, vamos dar um \textit{spoiler} da instalação do Docker:
 		\begin{enumerate}
 			\item Instalar o WSL (usuários Windows)
 			\item Criar uma conta no \textit\textbf{DockerHub}
@@ -248,7 +253,7 @@
 
 	%Frame: WSL2
 	\begin{frame}
-		\frametitle{WSL 2}
+		\frametitle{Passo 1: instalar o WSL 2}
 		\textbf{Pré-requisito:} antes de instalar o \textit{docker-desktop}, é necessário instalar o WSL (\textit{Windows Subsystem for Linux})
 		\begin{enumerate}
 			\item Abra o prompt de comando como administrador e execute o comando abaixo para instalar o wsl
@@ -258,7 +263,22 @@
 			\lstinputlisting[style=winprompt]{wsl-command.cmd}
 		\end{enumerate}
 	\end{frame}
-	
+
+	%Frame: Create Dockerhub account 
+	\begin{frame}
+		\frametitle{Passo 2: criar uma conta no DockerHub}
+		Uma vez instalado o WSL, é hora de criar uma conta no DockerHub (caso ainda não tenha uma)
+		\begin{enumerate}
+			\item Vá até \href{https://hub.docker.com/signup}{\appallingunderline{https://hub.docker.com/signup}}
+			\item Sigas instruções para criar uma conta (usuário, senha, email, etc..)
+		\end{enumerate}
+		\begin{figure}[h]
+			\fbox{\includegraphics[width=0.40\textwidth]{docker-webpage.png}}
+			\hspace{0.5cm}
+			\fbox{\includegraphics[width=0.355\textwidth]{docker-installation.png}}
+		\end{figure}
+	\end{frame}
+
 	%Frame: Docker Installation #1
 	\begin{frame}
 		\frametitle{Instalação do Docker}
