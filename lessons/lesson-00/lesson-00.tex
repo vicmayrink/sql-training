@@ -85,19 +85,40 @@
 	%Frame: why you should learn SQL
 	\begin{frame}
 		\frametitle{Por quê aprender SQL?}
-		\vspace{2mm}
-		\begin{itemize}[<+->]
-			\setlength{\itemsep}{7pt}
-			\item SQL é uma habilidade \textit{muito valorizada} no mercado
-			\item Conhecer SQL é útil para profissionais de \textit{diversas especialidades}
-			\item SQL é uma \textit{linguagem universal} para bancos de dados relacionais.
-			\item O entendimento de como os dados da sua empresa estão organizados contribui para que os profissionais tenham uma \textit{visão mais sistêmica do negócio} e dos processos operacionais.
-			\item \textit{Individualmente}, o conhecimento de SQL contribuí para a capacidade analítica do profissional
-			\item \textit{Coletivamente}, o uso extensivo de SQL entre os profissionais de uma empresa contribui para a criação de uma cultura orientada a dados e resultados
-		\end{itemize}
+		\reasonboxbegin{Motivo 1}
+			SQL é uma habilidade \textit{muito valorizada} no mercado
+		\reasonboxend
+		\reasonboxbegin{Motivo 2}
+			Conhecer SQL é útil para profissionais de \textit{diversas especialidades}
+		\reasonboxend
+		\reasonboxbegin{Motivo 3}
+			SQL é uma \textit{linguagem universal} para bancos de dados relacionais.
+		\reasonboxend
+	\end{frame}
+
+	%Frame: why you should learn SQL
+	\begin{frame}
+		\frametitle{Por quê aprender SQL?}
+		\reasonboxbegin{Motivo 4}
+			O entendimento de como os dados da empresa estão organizados contribui para que os uma \textit{visão mais sistêmica do negócio} e dos processos operacionais.
+		\reasonboxend
+		\reasonboxbegin{Motivo 5}
+			\textit{Individualmente}, o SQL contribuí para a capacidade analítica do profissional
+		\reasonboxend
+		\reasonboxbegin{Motivo 6}
+			\textit{Coletivamente}, o uso extensivo de SQL entre os profissionais de uma empresa contribui para a criação de uma cultura orientada a dados e resultados
+		\reasonboxend
+	\end{frame}
+
+	%Frame: why you should learn SQL
+	\begin{frame}
+		\frametitle{Por quê aprender SQL?}
+		\reasonboxbegin{Motivo 7}
+			Você vai passar a entender os memes e piadas de programadores\footnote{Pelo menos as que forem relacionadas a bancos de dados}
+		\reasonboxend
 	\end{frame}
 	
-	\section{Vamos começar}
+	\section{Bora começar!}
 	
 	%Frame: doctor scheduling example
 	\begin{frame}
@@ -230,6 +251,18 @@
 		\lstinputlisting[language=Sql]{table-consultas-select-1.sql}
 		\lstinputlisting[language=Sql]{table-consultas-select-1-result-2.sql}
 	\end{frame}
+
+	\begin{frame}
+		\frametitle{Atualizar registros}
+		Observe que o comando \bluehighlight{UPDATE...SET} vai atualizar \textbf{todos} os registros que satisfazem as condições impostas na cláusula \bluehighlight{WHERE}.
+
+		Exemplo:
+		\lstinputlisting[language=Sql]{table-consultas-update-1.sql}
+
+		Vai atualizar o valor da coluna \code{data\_hora\_consulta} para \texttt{2024-07-31 15:00} de \textbf{todos} os registros que satifazem as condições \texttt{nome\_paciente = `Maria Silva'} e \texttt{nome\_medico = `Dra. Costa'} e \texttt{data\_hora\_consulta = `2024-07-18 11:00:00'}.
+
+		No nosso caso, havia somente 1 registro nessas condições.
+	\end{frame}
 	
 	%Frame: delete
 	\begin{frame}
@@ -238,4 +271,35 @@
 		\lstinputlisting[language=Sql]{table-consultas-delete-1.sql}
 	\end{frame}
 	
+	%Section: Primary keys
+	\section{Chaves primárias}
+
+	\begin{frame}[t]
+		\frametitle{Problema}
+		Como deletar ou atualizar um único registro de uma tabela?
+
+		Suponha que um analista inseriu, acidentalmente, dois registros iguais em na tabela de consultas. Para eliminar a duplicidade, o analista precisa excluir um dos registros.
+
+		Exemplo:
+	\end{frame}
+
+	\begin{frame}[t]
+		\frametitle{Chaves primárias}
+		Uma chave primária é uma coluna que armazena um identificador único para cada registro de uma tabela.
+	\end{frame}
+
+	%Section: Lesson's final questions
+	\section{Perguntas sobre esta aula}
+
+	\begin{frame}[t]
+		\frametitle{Problema}
+		Como deletar ou atualizar um único registro de uma tabela?
+
+		Suponha que um analista inseriu, acidentalmente, dois registros iguais em na tabela de consultas. Para eliminar a duplicidade, o analista precisa excluir um dos registros.
+
+		Exemplo:
+
+
+	\end{frame}
+
 \end{document}

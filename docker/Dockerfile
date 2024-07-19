@@ -41,3 +41,6 @@ RUN tlmgr install pgfopts
 RUN tlmgr install listingsutf8
 RUN tlmgr install doublestroke
 RUN tlmgr install cellspace
+RUN tlmgr install realboxes
+RUN tlmgr install tikzfill
+RUN tlmgr install pdfcol
