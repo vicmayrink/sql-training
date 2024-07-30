@@ -13,6 +13,8 @@ docker-image:
 all:
 	@$(call compile_pdf,"lesson-00")
 	@$(call compile_pdf,"lesson-01")
+	@$(call compile_pdf,"lesson-02")
+	@$(call compile_pdf,"lesson-03")
 
 clear:
 	rm *.pdf
@@ -25,3 +27,6 @@ lesson-01:
 
 lesson-02:
 	@$(call compile_pdf,"lesson-02")
+
+lesson-03:
+	@$(call compile_pdf,"lesson-03")

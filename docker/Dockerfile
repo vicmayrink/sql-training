@@ -44,3 +44,4 @@ RUN tlmgr install cellspace
 RUN tlmgr install realboxes
 RUN tlmgr install tikzfill
 RUN tlmgr install pdfcol
+RUN tlmgr install xcolor-material

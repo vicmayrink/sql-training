@@ -1,4 +1,5 @@
 \usepackage{xcolor}
+\usepackage{xcolor-material}
 \usepackage[utf8]{inputenc}
 \usepackage[default]{lato}
 \usepackage[T1]{fontenc}
@@ -98,7 +99,7 @@
 
 %Inline code
 \newcommand{\code}[1]{
-	\tcbox[on line, boxsep=3pt, left=0pt,right=0pt,top=0pt,
+	\tcbox[on line, boxsep=1.5pt, left=0pt,right=0pt,top=0pt,
 		bottom=0pt,colback=backcolour,boxrule=0pt]{
 			{\lstinline[style=codeinline]|#1|}
 		}
@@ -133,12 +134,31 @@
 %
 
 \newcounter{reasonbox}
-\def\reasonboxbegin#1{
+\def\reasonboxbegin#1#2{
 	\bigskip
 	\refstepcounter{reasonbox}
-	\begin{tcolorbox}[colback=white,colframe=color1,arc=0mm,title={\textbf{#1}}]
+	\begin{tcolorbox}[colback=white,colframe=#2,arc=0mm,title={\textbf{#1}}]
 }
 \def\reasonboxend{
 	\end{tcolorbox}
 }
 %%%
+
+%Footnote with no markers
+%Reference: https://tex.stackexchange.com/a/30726
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{\vspace{-0.2\baselineskip}\fontsize{4}{6}\selectfont#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+%Self hyperref
+\newcommand\hrefself[1]{\href{#1}{#1}}
+
+\makeatletter
+\xpatchcmd{\@footnotetext}{\@parboxrestore}{\@parboxrestore\leftskip-1in}{}{}
+\xpatchcmd{\footnoterule}{\hrule}{\llap{\smash{\rule[-.4pt]{7mm}{.4pt}}}\hrule}{}{}
+\makeatother
+
+\addtobeamertemplate{footnote}{\hspace{-8mm}}{}

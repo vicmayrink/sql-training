@@ -85,27 +85,27 @@
 	%Frame: why you should learn SQL
 	\begin{frame}
 		\frametitle{Por quê aprender SQL?}
-		\reasonboxbegin{Motivo 1}
-			SQL é uma habilidade \textit{muito valorizada} no mercado
+		\reasonboxbegin{Motivo 1}{MaterialPink900}
+			SQL é uma habilidade muito útil no dia a dia e, portanto, muito procurada pelo mercado. Quando não é uma exigência, certamente torna-se um diferencial.
 		\reasonboxend
-		\reasonboxbegin{Motivo 2}
-			Conhecer SQL é útil para profissionais de \textit{diversas especialidades}
+		\reasonboxbegin{Motivo 2}{MaterialPink900}
+			Conhecer SQL \textbf{não} é coisa dos \textit{caras da TI}. 
 		\reasonboxend
-		\reasonboxbegin{Motivo 3}
-			SQL é uma \textit{linguagem universal} para bancos de dados relacionais.
+		\reasonboxbegin{Motivo 3}{MaterialPink900}
+			SQL é uma \textit{linguagem universal}. Adotada nos principais bancos de dados existentes.
 		\reasonboxend
 	\end{frame}
 
 	%Frame: why you should learn SQL
 	\begin{frame}
 		\frametitle{Por quê aprender SQL?}
-		\reasonboxbegin{Motivo 4}
-			O entendimento de como os dados da empresa estão organizados contribui para que os uma \textit{visão mais sistêmica do negócio} e dos processos operacionais.
+		\reasonboxbegin{Motivo 4}{MaterialPink900}
+			O entendimento de como os dados da empresa estão organizados contribui para o profissional tenha uma \textit{visão mais sistêmica do negócio} e dos processos operacionais.
 		\reasonboxend
-		\reasonboxbegin{Motivo 5}
+		\reasonboxbegin{Motivo 5}{MaterialPink900}
 			\textit{Individualmente}, o SQL contribuí para a capacidade analítica do profissional
 		\reasonboxend
-		\reasonboxbegin{Motivo 6}
+		\reasonboxbegin{Motivo 6}{MaterialPink900}
 			\textit{Coletivamente}, o uso extensivo de SQL entre os profissionais de uma empresa contribui para a criação de uma cultura orientada a dados e resultados
 		\reasonboxend
 	\end{frame}
@@ -113,7 +113,7 @@
 	%Frame: why you should learn SQL
 	\begin{frame}
 		\frametitle{Por quê aprender SQL?}
-		\reasonboxbegin{Motivo 7}
+		\reasonboxbegin{Motivo 7}{MaterialBlue600}
 			Você vai passar a entender os memes e piadas de programadores\footnote{Pelo menos as que forem relacionadas a bancos de dados}
 		\reasonboxend
 	\end{frame}
@@ -153,17 +153,30 @@
 		\end{columns}
 	\end{frame}
 	
-	%Frame: rows and columns
+	%Frame: doctor scheduling example
 	\begin{frame}
 		\frametitle{Registro de dados}
-		\vspace{3mm}
-		As fichas do formulário podem ser armazenadas em uma tabela 
-		\begin{itemize}
-			\item Cada ficha preenchida torna-se uma \textbf\textit{linha} ou \textbf{\textit{registro}} na tabela
-			\item Os campos do formulário tornam-se \textbf{\textit{colunas}} na tabela
-		\end{itemize}		
+		\begin{columns}[t]
+			\begin{column}{0.40\textwidth}
+				\begin{figure}[h]
+					\includegraphics[width=50mm, right]{paper-stack}
+				\end{figure}
+			\end{column}
+			\begin{column}{0.55\textwidth}
+				\vspace{2mm}
+				
+				As fichas do formulário podem ser armazenadas em uma tabela 
+				\begin{itemize}
+					\bigskip
+					\item Cada ficha preenchida torna-se uma \textbf\textit{linha} ou \textbf{\textit{registro}} na tabela
+					\item Os campos do formulário tornam-se \textbf{\textit{colunas}} na tabela
+				\end{itemize}
+			\end{column}
+			\begin{column}{0.05\textwidth}
+			\end{column}
+		\end{columns}
 	\end{frame}
-	
+
 	%Frame: insert
 	\begin{frame}
 		\frametitle{Registro de dados}
@@ -254,14 +267,44 @@
 
 	\begin{frame}
 		\frametitle{Atualizar registros}
-		Observe que o comando \bluehighlight{UPDATE...SET} vai atualizar \textbf{todos} os registros que satisfazem as condições impostas na cláusula \bluehighlight{WHERE}.
+		\vspace{-3mm}
+		\reasonboxbegin{Importante}{MaterialTeal800}
+			\small
+			Observe que o comando \bluehighlight{UPDATE...SET} vai atualizar \textbf{todos} os registros que satisfazem as condições impostas na cláusula \bluehighlight{WHERE}.
+		\reasonboxend
 
-		Exemplo:
+		\bigskip
 		\lstinputlisting[language=Sql]{table-consultas-update-1.sql}
 
-		Vai atualizar o valor da coluna \code{data\_hora\_consulta} para \texttt{2024-07-31 15:00} de \textbf{todos} os registros que satifazem as condições \texttt{nome\_paciente = `Maria Silva'} e \texttt{nome\_medico = `Dra. Costa'} e \texttt{data\_hora\_consulta = `2024-07-18 11:00:00'}.
+		\footnotesize{Vai atualizar o valor da coluna \code{data\_hora\_consulta} para \code{2024-07-31 15:00} de \textbf{todos} os registros que satifazem as condições:
+		\begin{enumerate}
+			\scriptsize
+			\item \code{nome\_paciente = `Maria Silva'}
+			\item \code{nome\_medico = `Dra. Costa'}
+			\item \code{data\_hora\_consulta = `2024-07-18 11:00:00'}.
+		\end{enumerate}
+		}
 
-		No nosso caso, havia somente 1 registro nessas condições.
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Atualizar registros}
+		\vspace{-3mm}
+		\reasonboxbegin{Pergunta}{MaterialTeal800}
+			\small
+			E se eu executar o comando \bluehighlight{UPDATE...SET} sem a cláusula \bluehighlight{WHERE}?
+		\reasonboxend
+		\begin{figure}
+			\centering
+			\includegraphics[height=37mm]{update-no-where-01}
+			\hspace{5mm}
+			\includegraphics[height=37mm]{update-no-where-02}
+			\hspace{5mm}
+			\includegraphics[height=37mm]{update-no-where-04}
+		\end{figure}
+		\blfootnote{\hrefself{https://www.reddit.com/r/programacao/comments/186omuj/}}
+		\blfootnote{\hrefself{https://www.reddit.com/r/memes\_pt/comments/a5txqt/}}
+		\blfootnote{\hrefself{https://www.canecadodev.com/quadro-em-caso-de-update-sem-where-compareca-ao-rh}}
 	\end{frame}
 	
 	%Frame: delete

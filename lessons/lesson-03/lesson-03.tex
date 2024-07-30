@@ -1,0 +1,127 @@
+\documentclass[t, 10pt, aspectratio=169, table, x11names]{beamer}
+\usetheme{metropolis}
+
+\input{/common/template}
+
+\begin{document}
+
+	\author{Victor Mayrink}
+	\title{Curso de SQL}
+	\subtitle{Aula 1: Instalação das ferramentas e configuração do ambiente}
+
+	%Frame: title
+	\begin{frame}[plain]
+		\maketitle
+	\end{frame}
+
+	%Frame: agenda
+	\begin{frame}
+		\frametitle{Agenda}
+		\vspace{1cm}
+		\begin{enumerate}
+			\large
+			\item O que é SQL
+			\item Por quê aprender SQL?
+			\item Instalação e configuração das ferramentas
+		\end{enumerate}
+	\end{frame}
+	
+
+	\section{Índices}
+
+	%Frame: client-server
+	\begin{frame}
+		\frametitle{Índices - Introdução e Motivação}
+		Imagine um antigo cartório de registro civil...
+		\bigskip
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=0.65\textwidth]{registry.jpg}
+		\end{figure}
+	\end{frame}
+
+	%Frame: client-server
+	\begin{frame}
+		\frametitle{Índices - Introdução e Motivação}
+		\begin{itemize}
+			\item Os registros de nascimento são armazendos em livros de registos;
+			\bigskip
+			\item Cada registro de nascimento ocupa uma página inteira de um livro. Esses registros contém informações como: nome completo, data de nascimento, local de nascimento, nome da mão, nome do pai, etc.;
+			\bigskip
+			\item Cada livro possui 500 páginas, enumeradas de 1 a 500;
+			\bigskip
+			\item Quando todas as páginas são preenchidas, o livro é rotulado com um número de sequencial, e depois armazenado em uma prateleira de forma ordenada;
+			\bigskip
+			\item Ao registrar um novo nascimento, o tabelião sempre utiliza a primeira página em branco disponível;
+		\end{itemize}
+	\end{frame}
+
+	%Frame: client-server
+	\begin{frame}
+		\frametitle{Índices - Introdução e Motivação}
+
+		Pois bem...
+		
+		\begin{itemize}
+			\item Observe que se o tabelião seguir a risca essas instruções, os registros serão \textbf{naturalmente} ordenados conforme a data e hora de registro (\textit{obs}: note que a \texttt{data de registro} não é necessariamente a \texttt{data de nascimento})
+			\bigskip
+			\item Dessa maneira é fácil localizar um registro, \textit{desde que} você saiba a data em que a pessoa foi registrada.
+			\bigskip
+			\item Ou, por exemplo, responder perguntas como: \textit{quantas pessoas foram registradas em 17 de Maio de 1868?}
+			\begin{itemize}
+				\item Simples: Procure o primeiro registro de nascimento desta data e conte quantos registros foram realizados até encontrar o primeiro registro do dia seguinte (excluido este último da contagem)
+			\end{itemize}
+			
+		\end{itemize}
+	\end{frame}
+
+	%Frame: client-server
+	\begin{frame}
+		\frametitle{Índices - Introdução e Motivação}
+		Mas e se eu precisar procurar o registro de uma pessoa conhecendo apenas o seu \texttt{nome completo}?
+		\bigskip
+		\begin{columns}[t]
+			\begin{column}{0.40\textwidth}
+				\begin{figure}[h]
+					\includegraphics[width=3cm, right]{goofy.png}
+				\end{figure}
+			\end{column}
+			\begin{column}{0.50\textwidth}
+				\bigskip
+				
+				É simples: Vamos percorrer todos os livros de registro, começando pelo primeiro livro. Então basta ler os registros um a um procurando pelo nome que estamos buscando.
+			\end{column}
+			\begin{column}{0.05\textwidth}
+			\end{column}
+		\end{columns}
+	\end{frame}
+
+	%Frame: client-server
+	\begin{frame}
+		\frametitle{Índices - Introdução e Motivação}
+		\bigskip
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=0.65\textwidth]{registry.jpg}
+		\end{figure}
+		%Colocar um meme de palhaço: tá me achando com cara de palhaço?
+	\end{frame}
+
+	%Frame: client-server
+	\begin{frame}
+		\frametitle{Índices - Introdução e Motivação}
+		Podemos indexar os registros de nascimento pelo \texttt{nome completo} da pessoa
+		\bigskip
+		
+		Indexar = criar uma lista ordenada utilizando um dos campos de registro (nesse caso o \texttt{nome completo}) e indicando o local onde o registro completo pode ser encontrado (número do livro e a página)
+		\bigskip
+		
+		Atenção: criar um índica não é significa criar uma cópia integral de todos os registros e organizá-los seguindo uma determinada ordenação.
+		\bigskip
+		
+		Se assim fosse o cartório precisaria dobrar o tamanho da sala do arquivo para cada novo índice. 
+
+	\end{frame}
+
+
+\end{document}
