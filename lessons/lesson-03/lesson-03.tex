@@ -44,32 +44,42 @@
 	\begin{frame}
 		\frametitle{Índices - Introdução e Motivação}
 		\begin{itemize}
+<<<<<<< Updated upstream
 			\item Os  registros de nascimento são armazendos em \textit{livros de registos};
+=======
+			\item Os registros de nascimento são armazendos em \textit{livros de registos};
+>>>>>>> Stashed changes
 			\bigskip
 			\item Cada registro de nascimento ocupa uma página inteira de um livro. Esses registros contém informações como: nome completo, data de nascimento, local de nascimento, nome da mão, nome do pai, etc.;
 			\bigskip
 			\item Cada livro possui 500 páginas, enumeradas de 1 a 500;
 			\bigskip
+<<<<<<< Updated upstream
 			\item Os livros são rotulados com um número de sequencial, e depois de completamente preenchidos, ficam guardados em uma prateleira de forma ordenada;
 			\bigskip
 			\item Ao registrar um novo nascimento, o tabelião sempre utiliza a primeira página em branco disponível;
+=======
+			\item As lombadas dos livros são rotuladas com um número de sequencial, e depois armazenados em uma prateleira de forma ordenada; (para facilitar adicione na lombada a data do primeiro registro que o livro contém)
+>>>>>>> Stashed changes
 		\end{itemize}
 	\end{frame}
 
 	%Frame: client-server
 	\begin{frame}
 		\frametitle{Índices - Introdução e Motivação}
-
-		Pois bem...
-		
+		\reasonboxbegin{Regra básica}{MaterialTeal800}
+			Ao registrar um novo nascimento, o tabelião sempre utiliza a primeira página em branco disponível;
+		\reasonboxend
 		\begin{itemize}
-			\item Observe que se o tabelião seguir a risca essas instruções, os registros serão \textbf{naturalmente} ordenados conforme a data e hora de registro (\textit{obs}: note que a \texttt{data de registro} não é necessariamente a \texttt{data de nascimento})
+			\item Assim, os registros serão \textbf{naturalmente} ordenados conforme a data e hora de registro
 			\bigskip
-			\item Dessa maneira é fácil localizar um registro, \textit{desde que} você saiba a data em que a pessoa foi registrada.
+			\item Dessa maneira é fácil localizar um registro, \textit{desde que} você saiba a data em que esse registro foi feito.
 			\bigskip
-			\item Ou, por exemplo, responder perguntas como: \textit{quantas pessoas foram registradas em 17 de Maio de 1868?}
+			\item \textit{Quantos nascimentos foram registrados em 17 de Maio de 1868?}
+			\bigskip
 			\begin{itemize}
-				\item Simples: Procure o primeiro registro de nascimento desta data e conte quantos registros foram realizados até encontrar o primeiro registro do dia seguinte (excluido este último da contagem)
+				\small
+				\item Resposta: Procure o primeiro registro de nascimento desta data e conte quantos registros foram realizados até encontrar o primeiro registro do dia seguinte (excluindo-o da contagem)
 			\end{itemize}
 		\end{itemize}
 	\end{frame}
@@ -88,7 +98,7 @@
 			\begin{column}{0.50\textwidth}
 				\bigskip
 				
-				É simples: Vamos percorrer todos os livros de registro, começando pelo primeiro livro. Então basta ler os registros um a um procurando pelo nome que estamos buscando.
+				\textit{É simples...} Vamos analisar todos os livros de registro, começando pelo primeiro livro. Então basta ler os registros um a um procurando pelo nome que estamos buscando.
 			\end{column}
 			\begin{column}{0.05\textwidth}
 			\end{column}
@@ -101,10 +111,52 @@
 		\bigskip
 		\begin{figure}[h]
 			\centering
-			\includegraphics[width=0.65\textwidth]{registry.jpg}
+			\includegraphics[height=52mm]{registry.jpg}
+			\includegraphics[height=52mm]{lazy.jpg}
 		\end{figure}
-		%Colocar um meme de palhaço: tá me achando com cara de palhaço?
 	\end{frame}
+
+	%Frame: client-server
+	\begin{frame}
+		\frametitle{Índices - Introdução e Motivação}
+		\bigskip
+		\begin{figure}[h]
+			\centering
+			\includegraphics[height=52mm]{think-smartly.jpg}
+		\end{figure}
+	\end{frame}
+
+	%Frame: client-server
+	\begin{frame}
+		\frametitle{Índices - Introdução e Motivação}
+		\textbf{Vamos fazer o seguinte...}
+		\bigskip
+		\begin{itemize}
+			\item Toda vez que um novo nascimento for registrado, anote o \texttt{nome completo} da pessoa em um pequeno cartão.
+			\bigskip
+			\item Neste cartão, escreva também o número do livro e a página onde foi o nascimento foi registrado
+			\bigskip
+			\item Guarde o cartão em um fichário alfabético
+			\bigskip
+			\item Da próxima vez que alguém solicitar uma certidão de nascimento de um sujeito chamado \textit{Fulano de Tal}: procure primeiramente pelo cartão e, em seguida, consulte o registro de nascimento no livro e página indicados.
+		\end{itemize}
+	\end{frame}
+
+	%Frame: client-server
+	\begin{frame}
+		\frametitle{Conclusão}
+		\textbf{Consequências da criação de índices:}
+		\bigskip
+		\begin{itemize}
+			\item[\textbf{$\checkmark$}] Facilita enormemente o trabalho de pesquisa (este é o propósito de um índice)
+			\bigskip
+			\item[\textbf{$\times$}] Requer um espaço adicional de armazenamento (no nosso exemplo, além das estantes com os livros de registros, precisaríamos também de uma prateleira para armazenar os índices)
+			\bigskip
+			\item[$\times$] Dificulta o processo de adição de novos registros, pois sempre que um novo registro for criado, é necessário criar um cartão de índice a guardá-lo na ordem correta do fichário alfabético.
+		\end{itemize}
+	\end{frame}
+
+
 
 	%Frame: client-server
 	\begin{frame}

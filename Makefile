@@ -18,6 +18,10 @@ all:
 
 clear:
 	rm *.pdf
+	rm -rf ./lessons/lesson-00/texfiles
+	rm -rf ./lessons/lesson-01/texfiles
+	rm -rf ./lessons/lesson-02/texfiles
+	rm -rf ./lessons/lesson-03/texfiles
 
 lesson-00:
 	@$(call compile_pdf,"lesson-00")
