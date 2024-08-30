@@ -44,23 +44,17 @@
 	\begin{frame}
 		\frametitle{Índices - Introdução e Motivação}
 		\begin{itemize}
-<<<<<<< Updated upstream
-			\item Os  registros de nascimento são armazendos em \textit{livros de registos};
-=======
 			\item Os registros de nascimento são armazendos em \textit{livros de registos};
->>>>>>> Stashed changes
 			\bigskip
 			\item Cada registro de nascimento ocupa uma página inteira de um livro. Esses registros contém informações como: nome completo, data de nascimento, local de nascimento, nome da mão, nome do pai, etc.;
 			\bigskip
 			\item Cada livro possui 500 páginas, enumeradas de 1 a 500;
 			\bigskip
-<<<<<<< Updated upstream
 			\item Os livros são rotulados com um número de sequencial, e depois de completamente preenchidos, ficam guardados em uma prateleira de forma ordenada;
 			\bigskip
 			\item Ao registrar um novo nascimento, o tabelião sempre utiliza a primeira página em branco disponível;
-=======
+			\bigskip
 			\item As lombadas dos livros são rotuladas com um número de sequencial, e depois armazenados em uma prateleira de forma ordenada; (para facilitar adicione na lombada a data do primeiro registro que o livro contém)
->>>>>>> Stashed changes
 		\end{itemize}
 	\end{frame}
 
@@ -137,10 +131,18 @@
 			\item Neste cartão, escreva também o número do livro e a página onde foi o nascimento foi registrado
 			\bigskip
 			\item Guarde o cartão em um fichário alfabético
-			\bigskip
-			\item Da próxima vez que alguém solicitar uma certidão de nascimento de um sujeito chamado \textit{Fulano de Tal}: procure primeiramente pelo cartão e, em seguida, consulte o registro de nascimento no livro e página indicados.
 		\end{itemize}
+
+		\tikzoverlay[text width=30mm] at (80mm,18mm) {
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=30mm]{alphabetic-organiser.jpg}
+			\end{figure}
+		};
+
 	\end{frame}
+
+	%\item Da próxima vez que alguém solicitar uma certidão de nascimento de um indivíduo chamado \textit{Fulano de Tal}: procure primeiramente pelo cartão no fichário alfabético e, em seguida, consulte o registro de nascimento no livro e página indicados.
 
 	%Frame: client-server
 	\begin{frame}
