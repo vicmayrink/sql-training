@@ -142,6 +142,19 @@
 \def\reasonboxend{
 	\end{tcolorbox}
 }
+
+\newcounter{highlightboxbegin}
+\def\highlightboxbegin#1#2#3{
+	\medskip
+	\refstepcounter{highlightboxbegin}
+	\begin{centering}
+	\begin{tcolorbox}[colback=white,colframe=#2,arc=0mm,title={\textbf{#1}},width=#3\linewidth]
+}
+\def\highlightboxend{
+	\end{tcolorbox}
+	\end{centering}
+}
+
 %%%
 
 %Footnote with no markers

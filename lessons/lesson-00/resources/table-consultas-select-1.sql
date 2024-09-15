@@ -1,7 +1,7 @@
 -- Consultar a agenda da Dra. Costa
 SELECT
-    nome_paciente,
-    data_hora_consulta
+    data_hora_consulta,
+    nome_paciente
 FROM consultas
 WHERE nome_medico = 'Dra. Costa'
 ORDER BY data_hora_consulta;

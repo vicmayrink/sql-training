@@ -41,15 +41,22 @@
 	\begin{frame}
 		\frametitle{Clientes de bancos de dados}
 		Existem diferentes \textit{softwares} que funcionam como clientes de bancos de dados
+		\medskip
+		\begin{itemize}
+			\item DBeaver
+			\item MySQL workbench
+			\item DataGrip
+			\item DbVisualizer
+		\end{itemize}
 		\begin{figure}
 			\vspace{2mm}
 			\centering
 			\includegraphics[height=15mm]{dbeaver.png}
-			\hspace{5mm}
+			\hspace{10mm}
 			\includegraphics[height=15mm]{logo-mysql-workbench}
-			\hspace{5mm}
+			\hspace{10mm}
 			\includegraphics[height=15mm]{logo-datagrip.png}
-			\hspace{5mm}
+			\hspace{7mm}
 			\includegraphics[height=15mm]{logo-dbvis.png}
 		\end{figure}
 	\end{frame}
@@ -59,28 +66,22 @@
 		\frametitle{Servidores de bancos de dados}
 		\begin{itemize}
 			\item[] Da mesma forma, também existem diferentes \textit{softwares} que funcionam como servidores de banco de dados
-			\begin{figure}
-				\vspace{6mm}
-				\centering
-				\includegraphics[height=13mm]{logo-postgres}
-				\hspace{5mm}
-				\includegraphics[height=13mm]{logo-mysql}
-				\hspace{5mm}
-				\includegraphics[height=13mm]{logo-mariadb}
-				\hspace{5mm}
-				\includegraphics[height=13mm]{logo-redshift}
-			\end{figure}
-			\begin{figure}
-				\vspace{6mm}
-				\centering
-				\includegraphics[height=13mm]{logo-snowflake}
-				\hspace{5mm}
-				\includegraphics[height=13mm]{logo-sql-server}
-				\hspace{5mm}
-				\includegraphics[height=13mm]{logo-sqllite}
-				\hspace{5mm}
-				\includegraphics[height=13mm]{logo-hive}
-			\end{figure}
+			\bigskip\bigskip
+			\begin{table}
+				\begin{center}
+					\begin{tabular}{cccc}
+						\includegraphics[height=14mm]{logo-postgres} &
+						\includegraphics[height=14mm]{logo-mysql} &
+						\includegraphics[height=14mm]{logo-mariadb} &
+						\includegraphics[height=14mm]{logo-redshift}
+						\\ \\ \\
+						\includegraphics[height=14mm]{logo-snowflake} &
+						\includegraphics[height=14mm]{logo-sql-server} &
+						\includegraphics[height=14mm]{logo-sqllite} &
+						\includegraphics[height=14mm]{logo-hive}
+					\end{tabular}
+				\end{center}
+			\end{table}
 		\end{itemize}
 	\end{frame}
 
@@ -200,7 +201,7 @@
 					\vspace{3mm}
 					\item[] Tudo bem! Ficará mais claro quando a gente começar a usá-lo.
 					\vspace{3mm}
-					\item[] Por ora, venham comigo!
+					\item[] Por ora, apenas venham comigo!
 				\end{itemize}
 			\end{column}
 			\begin{column}{0.05\textwidth}
@@ -272,38 +273,62 @@
 			\item Vá até \href{https://hub.docker.com/signup}{\appallingunderline{https://hub.docker.com/signup}}
 			\item Sigas instruções para criar uma conta (usuário, senha, email, etc..)
 		\end{enumerate}
+		\medskip
 		\begin{figure}[h]
-			\fbox{\includegraphics[width=0.40\textwidth]{docker-webpage.png}}
+			\fbox{\includegraphics[height=42mm]{docker-hub-homepage.png}}
 			\hspace{0.5cm}
-			\fbox{\includegraphics[width=0.355\textwidth]{docker-installation.png}}
+			\fbox{\includegraphics[height=42mm]{docker-signup.png}}
 		\end{figure}
 	\end{frame}
 
-	%Frame: Docker Installation #1
+	%Frame: Docker Desktop Installation #1
 	\begin{frame}
-		\frametitle{Instalação do Docker}
-		Uma vez instalado o WSL, podemos prosseguir para a instalação do Docker:
+		\frametitle{Passo 3: Instalar do Docker Desktop}
+		Uma vez instalado o WSL, podemos prosseguir para a instalação do Docker Desktop:
 		\begin{enumerate}
 			\item Vá até \href{https://www.docker.com/products/docker-desktop/}{\appallingunderline{https://www.docker.com/products/docker-desktop/}}
 			\item Baixe o instalador do \textit{Docker Desktop} compatível com seu sistema
 			\item Siga os passos de instalação
 		\end{enumerate}
 		\begin{figure}[h]
-			\fbox{\includegraphics[width=0.40\textwidth]{docker-webpage.png}}
+			\fbox{\includegraphics[height=38mm]{docker-desktop-download.png}}
 			\hspace{0.5cm}
-			\fbox{\includegraphics[width=0.355\textwidth]{docker-installation.png}}
+			\fbox{\includegraphics[height=38mm]{docker-installation.png}}
 		\end{figure}
 	\end{frame}
 	
-	%Frame: Docker Installation #2
+	%Frame: Docker Desktop Installation #1
 	\begin{frame}
-		\frametitle{Instalação do Docker}
+		\frametitle{Passo 3: Instalar do Docker Desktop}
 		Depois de instalado, essa será a aparência do Docker:
 		\begin{figure}[h]
-			\includegraphics[width=0.70\textwidth]{docker-window.png}
+			\fbox{\includegraphics[width=0.70\textwidth]{docker-window.png}}
+		\end{figure}
+	\end{frame}
+
+	%Frame: Docker Desktop Signin
+	\begin{frame}
+		\frametitle{Passo 4: Login no Docker Desktop}
+		Dentro do Docker Desktop, você deve clicar em "Sign in" para se logar em sua conta do Docker Hub. 
+		Você será redirecionad para fazer o login pelo navegador.
+		\begin{figure}[h]
+			\fbox{\includegraphics[width=0.70\textwidth]{docker-desktop-sign-in.png}}
 		\end{figure}
 	\end{frame}
 	
+	%Frame: Docker Desktop Signin
+	\begin{frame}
+		\frametitle{Passo 5: Baixar a imagem do MySQL}
+		Vamos baixar a \textbf{imagem} do MySQL e executar um \textbf{container}
+		\begin{itemize}
+			\item \textbf{Imagem:} é a forma para fazer bolos
+			\item \textbf{Container:} é um bolo feito a partir de uma forma
+		\end{itemize}
+		\begin{figure}[h]
+			\fbox{\includegraphics[height=45mm]{image-vs-container.png}}
+		\end{figure}
+	\end{frame}
+
 	\section{Simulação do servidor MySQL}
 
 	%Frame: emulating MySQL

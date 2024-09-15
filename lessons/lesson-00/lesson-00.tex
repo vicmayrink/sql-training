@@ -8,7 +8,7 @@
 	%Author, Title and subtitle
 	\author{Victor Mayrink}
 	\title{Curso de SQL}
-	\subtitle{Aula 0: Introdução e motivação}
+	\subtitle{Aula 0: Motivação e breve introdução}
 
 	%Fame: title
 	\begin{frame}[plain]
@@ -21,12 +21,14 @@
 		\vspace{1cm}
 		\begin{enumerate}
 			\large
-			\item O que é SQL
+			\item O que é SQL?
 			\item Por quê aprender SQL?
-			\item Instalação e configuração das ferramentas
+			\item Introdução às tabelas e SQL
 		\end{enumerate}
 	\end{frame}
 	
+	\section{O que é SQL?}
+
 	%Frame: sql meaning
 	\begin{frame}
 		\frametitle{O que é SQL?}
@@ -48,7 +50,7 @@
 		\vspace{2mm}
 		\begin{itemize}
 			\setlength{\itemsep}{8pt}
-			\item SQL é uma linguagem para \textit{fazer \textbf{perguntas} à um banco de dados}
+			\item SQL é uma linguagem para \textit{fazer perguntas (\textbf{consultas})} à um banco de dados
 		\end{itemize}
 		\vspace{2mm}
 		\begin{figure}[h]
@@ -64,29 +66,32 @@
 		\vspace{0.3cm}
 		\begin{itemize}
 			\setlength{\itemsep}{8pt}
-			\item Estritamente falando, o SQL não serve \textit{\textbf{somente}} para fazer perguntas. 
-			\item O SQL é a linguagem mais utilizada para executar comandos em um banco de dados
+			\item Neste ponto vale a pena abrir um parênteses (:
+			\item Na verdade, o SQL não serve \textit{\textbf{somente}} para fazer perguntas.
+			\item SQL pode ser usado para enviar qualquer comando ao banco de dados
 			\vspace{0.11cm}
 			\begin{itemize}
 				\item criar tabelas,
 				\item inserir novos registros,
 				\item atualizar registros existentes,
 				\item excluir registros,
-				\item etc... (veremos mais adiante)
+				\item e muitos outros...
 			\end{itemize}
 			\vspace{0.5cm}
 			\begin{center}
 				No entanto, o SQL é utilizado principalmente para realizar \textit{consultas} no banco.\\
-				Ou seja, \textbf{fazer perguntas}.
+				Ou seja, na maior parte do tempo, usaremos SQL para \textbf{fazer perguntas}.
 			\end{center}
 		\end{itemize}
 	\end{frame}
+
+	\section{7 motivos para aprender SQL}
 
 	%Frame: why you should learn SQL
 	\begin{frame}
 		\frametitle{Por quê aprender SQL?}
 		\reasonboxbegin{Motivo 1}{MaterialPink900}
-			SQL é uma habilidade muito útil no dia a dia e, portanto, muito procurada pelo mercado. Quando não é uma exigência, certamente torna-se um diferencial.
+			Habilidades analíticas são muito valorizadas no mercado de trabalho. Se você quer ir além do Excel, então SQL é o seu próximo passo.
 		\reasonboxend
 		\reasonboxbegin{Motivo 2}{MaterialPink900}
 			Conhecer SQL \textbf{não} é coisa dos \textit{caras da TI}. 
@@ -100,7 +105,7 @@
 	\begin{frame}
 		\frametitle{Por quê aprender SQL?}
 		\reasonboxbegin{Motivo 4}{MaterialPink900}
-			O entendimento de como os dados da empresa estão organizados contribui para o profissional tenha uma \textit{visão mais sistêmica do negócio} e dos processos operacionais.
+			O entendimento do modelo de dados de uma organização contribui para que o profissional tenha uma \textit{visão mais sistêmica do negócio} e dos processos operacionais.
 		\reasonboxend
 		\reasonboxbegin{Motivo 5}{MaterialPink900}
 			\textit{Individualmente}, o SQL contribuí para a capacidade analítica do profissional
@@ -114,8 +119,13 @@
 	\begin{frame}
 		\frametitle{Por quê aprender SQL?}
 		\reasonboxbegin{Motivo 7}{MaterialBlue600}
-			Você vai passar a entender os memes e piadas de programadores\footnote{Pelo menos as que forem relacionadas a bancos de dados}
+			Você vai passar a entender os memes e piadas sobre bancos de dados.
 		\reasonboxend
+		\bigskip
+		\begin{figure}[h]
+			\centering
+			\includegraphics[height=30mm]{now-convinced.jpg}
+		\end{figure}
 	\end{frame}
 	
 	\section{Bora começar!}
@@ -165,12 +175,14 @@
 			\begin{column}{0.55\textwidth}
 				\vspace{2mm}
 				
-				As fichas do formulário podem ser armazenadas em uma tabela 
+				As fichas do formulário podem ser empilhadas sobre a mesa da secretaria...
+				
+				\bigskip
+				Mas é melhor registrar os dados em uma tabela :)
 				\begin{itemize}
-					\bigskip\bigskip
-					\item Cada ficha preenchida torna-se uma \textbf\textit{linha} ou \textbf{\textit{registro}} na tabela
 					\bigskip
-					\item Os campos do formulário tornam-se \textbf{\textit{colunas}} na tabela
+					\item Cada ficha preenchida torna-se uma \textbf\textit{linha} ou \textbf{\textit{registro}} na tabela
+					\item Cada campo do formulário é representado por uma \textbf{\textit{coluna}} da tabela
 				\end{itemize}
 			\end{column}
 			\begin{column}{0.05\textwidth}
@@ -179,9 +191,7 @@
 	\end{frame}
 
 	%Frame: insert
-	\begin{frame}
-		\frametitle{Registro de dados}
-		Alguns dados fictícios (gerados pelo ChatGPT)
+	\newcommand\exampletable{
 		\begin{table}[ht]
 			\centering
 			\footnotesize
@@ -220,22 +230,56 @@
 				\hline
 			\end{tabular}
 		\end{table}
+	}
+	\begin{frame}[fragile]
+		\frametitle{Registro de dados}
+		Alguns dados fictícios (gerados pelo ChatGPT)
+		\exampletable
 	\end{frame}
 	
 	%Frame: create table
 	\begin{frame}
 		\frametitle{Criação da tabela no SQL}
-		Para criar uma tabela como essa, utilizamos o comando \bluehighlight{CREATE TABLE}:
+		Para criar uma tabela como essa, utilizamos o comando sql: \bluehighlight{CREATE TABLE}:
 		\lstinputlisting[language=Sql]{table-consultas-create-1.sql}
 		Vamos analisar a estrutura desse comando:
 		\lstinputlisting[language=Sql]{table-consultas-create-2.sql}
+	\end{frame}
+	
+	%Frame: create table #2
+	\begin{frame}
+		\frametitle{Criação da tabela no SQL}
+		Muito bem! Criamos a tabela, mas ela ainda não possui nenhum registro.
+		\smallskip
+		\begin{table}[ht]
+			\centering
+			\footnotesize
+			\begin{tabular}{|l|l|l|l|l|}
+				\hline
+				\rowcolor{SeaGreen3!30!}
+				\textbf{nome\_paciente} & \textbf{data\_nasc\_paciente} & \textbf{nome\_medico} & \textbf{especialidade\_medico} & \textbf{data\_hora\_consulta} \\
+				\hline
+				&&&&\\ \hline &&&&\\ \hline &&&&\\ \hline &&&&\\
+				\hline
+			\end{tabular}
+		\end{table}
+		\bigskip
+		Agora precisamos \textit{\textbf{alimentar}} nossa tabela...
 	\end{frame}	
 	
 	%Frame: insert records
 	\begin{frame}
 		\frametitle{Inserir registros na tabela}
 		Para inserir registros, utilizamos o comando \bluehighlight{INSERT INTO ... VALUES}:
+		\bigskip
 		\lstinputlisting[language=Sql, xleftmargin=0mm, xrightmargin=0mm]{table-consultas-ingest-1.sql}
+	\end{frame}
+
+	%Frame: insert records
+	\begin{frame}
+		\frametitle{Inserir registros na tabela}
+		Muito bem. Agora nossa tabela já possui alguns dados.
+		\exampletable
 	\end{frame}
 
 	%Frame: select
@@ -249,11 +293,30 @@
 
 	%Frame: practical case
 	\begin{frame}
-		\frametitle{Exemplo prático com o Dbeaver}
-		Para consultar os registros de uma tabela, usamos o comando \bluehighlight{SELECT}.
-		\lstinputlisting[language=Sql]{table-consultas-select-1.sql}
-		Resposta do servidor:
-		\lstinputlisting[language=Sql]{table-consultas-select-1-result.sql}
+		\frametitle{Para, para, para!!!}
+		\begin{figure}
+			\centering
+			\includegraphics[height=40mm]{stop-stop.jpg}
+		\end{figure}
+		\highlightboxbegin{Tá bem, mas onde eu uso esses códigos?}{MaterialPink900}{0.8}
+			Vamos precisar instalar algumas ferramentas.\\
+			Mas vamos deixar isso para a próxima aula :D
+		\highlightboxend
+	\end{frame}
+
+	\section{Revisão}
+
+	%Frame: practical case
+	\begin{frame}
+		\frametitle{Revisão}
+		\begin{itemize}
+			\item Entendemos que \textbf{fazer as perguntas certas} é mais importante do que encontrar respostas
+			\bigskip\item Seja qual for a sua função em uma organização, conhecer \textbf{SQL sempre vale a pena!}
+			\bigskip\item Discutimos o que que são \textbf{tabelas}, \textbf{linhas} (ou registros), \textbf{colunas} (ou campos) e alguns \textbf{tipos de dados} básicos
+			\bigskip\item Aprendemos a \textbf{criar} uma tabela em SQL
+			\bigskip\item Vimos como \textbf{alimentar} uma tabela com dados
+			\bigskip\item Descobrimos como \textbf{consultar} os dados de uma tabela
+		\end{itemize}
 	\end{frame}
 	
 	%Frame: update
