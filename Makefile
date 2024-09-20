@@ -13,15 +13,15 @@ docker-image:
 all:
 	@$(call compile_pdf,"lesson-00")
 	@$(call compile_pdf,"lesson-01")
-	@$(call compile_pdf,"lesson-02")
 	@$(call compile_pdf,"lesson-03")
+	@$(call compile_pdf,"lesson-04")
 
 clear:
 	rm *.pdf
 	rm -rf ./lessons/lesson-00/texfiles
 	rm -rf ./lessons/lesson-01/texfiles
-	rm -rf ./lessons/lesson-02/texfiles
 	rm -rf ./lessons/lesson-03/texfiles
+	rm -rf ./lessons/lesson-04/texfiles
 
 lesson-00:
 	@$(call compile_pdf,"lesson-00")
