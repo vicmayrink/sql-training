@@ -16,11 +16,14 @@
 	
 	%Frame: agenda
 	\begin{frame}
-		\frametitle{Resumo da aula}
-		\vspace{0.5cm}
-		\begin{figure}[h]
-			\includegraphics[width=0.70\textwidth]{docker-window.png}
-		\end{figure}
+		\frametitle{Agenda}
+		\vspace{1cm}
+		\begin{enumerate}
+			\large
+			\item Arquitetura cliente e servidor
+			\item Instalação das ferramentas
+			\item Execução dos códigos vistos na última aula
+		\end{enumerate}
 	\end{frame}
 
 	%Frame: client-server
@@ -178,7 +181,7 @@
 			\vspace{2mm}
 			\item A maior parte das aplicações são projetadas e otimizadas para rodar em um SO específico e possuem dependências de bibliotecas de sistema.
 			\vspace{2mm}
-			\item Com o Docker, é possível emular uma aplicações projetada para rodar em outro SO e sem se preocupar com a instalação e configuração das dependências.
+			\item Com o Docker, é possível emular uma aplicação que foi projetada para rodar em outro SO, sem se preocupar com a instalação e configuração das dependências.
 			\vspace{2mm}
 			\item O propósito final é semelhante ao de uma máquina virtual, embora tecnicamente não seja exatamente a mesma coisa.
 		\end{itemize}
@@ -309,8 +312,8 @@
 	%Frame: Docker Desktop Signin
 	\begin{frame}
 		\frametitle{Passo 4: Login no Docker Desktop}
-		Dentro do Docker Desktop, você deve clicar em "Sign in" para se logar em sua conta do Docker Hub. 
-		Você será redirecionad para fazer o login pelo navegador.
+		Dentro do Docker Desktop, você deve clicar em "Sign in" para se logar em sua conta do Docker Hub.
+		Você será redirecionado para fazer o login pelo navegador.
 		\begin{figure}[h]
 			\fbox{\includegraphics[width=0.70\textwidth]{docker-desktop-sign-in.png}}
 		\end{figure}
@@ -326,6 +329,32 @@
 		\end{itemize}
 		\begin{figure}[h]
 			\fbox{\includegraphics[height=45mm]{image-vs-container.png}}
+		\end{figure}
+	\end{frame}
+
+	%Frame: Docker Pulling an image
+	\begin{frame}
+		\frametitle{Passo 5: Baixar a imagem do MySQL}
+		Na barra de pesquisas (na parte superior) digite "mysql".
+		Procure pela imagem chamada "mysql" com uma tag indicando que trata-se de uma imagem oficial do Docker.
+		
+		\smallskip
+		Clique no botão "Pull" 
+		\begin{figure}[h]
+			\fbox{\includegraphics[height=40mm]{docker-image-search.png}}
+		\end{figure}
+	\end{frame}
+
+	\begin{frame}[t]
+		\frametitle{Passo 5: Baixar a imagem do MySQL}
+		Vamos baixar também a imagem de um banco MySQL que já possui dados pré-carregados.
+		
+		Repita o procedimento, desta vez vamos baixar a imagem \textbf{\texttt{sakiladb/mysql}}
+		\bigskip
+		\begin{figure}[h]
+			\fbox{\includegraphics[width=0.45\textwidth]{docker-sakila-search-1.png}}
+			\hspace{0.5cm}
+			\fbox{\includegraphics[width=0.45\textwidth]{docker-sakila-search-2.png}}
 		\end{figure}
 	\end{frame}
 
