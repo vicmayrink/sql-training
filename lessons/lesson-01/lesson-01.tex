@@ -318,19 +318,6 @@
 			\fbox{\includegraphics[width=0.70\textwidth]{docker-desktop-sign-in.png}}
 		\end{figure}
 	\end{frame}
-	
-	%Frame: Docker Desktop Signin
-	\begin{frame}
-		\frametitle{Passo 5: Baixar a imagem do MySQL}
-		Vamos baixar a \textbf{imagem} do MySQL e executar um \textbf{container}
-		\begin{itemize}
-			\item \textbf{Imagem:} é a forma para fazer bolos
-			\item \textbf{Container:} é um bolo feito a partir de uma forma
-		\end{itemize}
-		\begin{figure}[h]
-			\fbox{\includegraphics[height=45mm]{image-vs-container.png}}
-		\end{figure}
-	\end{frame}
 
 	%Frame: Docker Pulling an image
 	\begin{frame}
@@ -342,6 +329,78 @@
 		Clique no botão "Pull" 
 		\begin{figure}[h]
 			\fbox{\includegraphics[height=40mm]{docker-image-search.png}}
+		\end{figure}
+	\end{frame}
+	
+	\section{Simulação do servidor MySQL}
+
+	\begin{frame}
+		\frametitle{Execução do container}
+		\bigskip \bigskip
+		\begin{itemize}
+			\centering
+			\Large
+			\item[] Já baixamos a \textbf{\textit{imagem}} do MySQL.
+			\bigskip \bigskip
+			\item[] É hora de executar um \textbf{\textit{container}}.
+		\end{itemize}
+	\end{frame}
+
+	%Frame: Docker - Image vs Container
+	\begin{frame}
+		\frametitle{Imagem \& Container}
+		\begin{columns}[t]
+			\begin{column}{0.40\textwidth}
+				\begin{figure}[h]
+					\fbox{\includegraphics[height=60mm]{image-vs-container.jpg}}
+				\end{figure}
+			\end{column}
+			\begin{column}{0.55\textwidth}
+				\bigskip \bigskip
+				\reasonboxbegin{Imagem x Container}{MaterialTeal800}
+					Qual a diferença entre imagem e container?
+				\reasonboxend
+			\end{column}
+			\begin{column}{0.05\textwidth}
+			\end{column}
+		\end{columns}
+	\end{frame}
+
+	%Frame: Docker - Image vs Container
+	\begin{frame}
+		\frametitle{Imagem \& Container}
+		\begin{columns}[t]
+			\begin{column}{0.40\textwidth}
+				\begin{figure}[h]
+					\fbox{\includegraphics[height=60mm]{image-vs-container-confident.jpg}}
+				\end{figure}
+			\end{column}
+			\begin{column}{0.55\textwidth}
+				\bigskip
+
+				O container é uma \textbf{instância} de execução de uma imagem.
+				\bigskip
+				\begin{itemize}
+					\item[] \textbf{Imagem:} é como uma forma de fazer bolos
+					\bigskip
+					\item[] \textbf{Container:} é como um bolo que foi produzido a partir de uma forma
+				\end{itemize}
+			\end{column}
+			\begin{column}{0.05\textwidth}
+			\end{column}
+		\end{columns}
+	\end{frame}
+
+	%Frame: Docker - Image vs Container
+	\begin{frame}
+		\frametitle{Executando um container do MySQL}
+		\begin{enumerate}
+			\item No menu lateral do Docker, clique em "\textit{Images}".
+			\item Localize a imagem do MySQL que acabamos de baixar.
+			\item Clique no botão $\filledmedtriangleright$ para executar um container a partir desta imagem.
+		\end{enumerate}
+		\begin{figure}[h]
+			\fbox{\includegraphics[height=50mm]{run-container.png}}
 		\end{figure}
 	\end{frame}
 
@@ -358,7 +417,7 @@
 		\end{figure}
 	\end{frame}
 
-	\section{Simulação do servidor MySQL}
+	
 
 	%Frame: emulating MySQL
 	\begin{frame}
